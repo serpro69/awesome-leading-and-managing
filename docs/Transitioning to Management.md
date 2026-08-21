@@ -2,6 +2,40 @@
 
 ### Transitioning from Individual Contributor to Manager 
 
+- [30 Reminders of a Mindful Leader](https://ritaleon.blogspot.com/2010/05/30-reminders-of-mindful-leader.html) - Ritalin's Blog.
+
+??? quote "Click to expand"
+    1. Take time to meditate, reflect, and study.
+    2. Cultivate a household that appreciates the training of a mindful leader.
+    3. Create moments of silence: retreat to be alone on occasion.
+    4. Contemplate the impermanent nature of wealth and career.
+    5. Show respect to those who teach you how to become a mindful leader.
+    6. On occasion, meditate and study with others who aspire to become mindful leaders.
+    7. Work hard to open to life’s circumstances; step beyond resistance.
+    8. Permit life to reveal its fundamental nature: free, vast, and confident.
+    9. Put others ahead of your self; focus on promoting their welfare.
+    10. Carefully examine all insults; quietly wish the best to those who are rude.
+    11. Clean up messes and difficulties, even if they are not of your making.
+    12. Treat adverse circumstances as your teacher.
+    13. When hurt by those you trust and love, show kindness.
+    14. Never lose courage in the face of physical pain and difficult circumstances.
+    15. When praised, carefully examine your tendency toward pride and arrogance.
+    16. Take full responsibility for your anger; lay it down gently but quickly.
+    17. Abandon addiction and compulsive attractions; savor pleasures with dignity.
+    18. Dispel the blinding effects of making “me” the center of everything.
+    19. When grieving, contemplate the passing nature of everything.
+    20. Enjoy bestowing gifts on others.
+    21. Cultivate your natural tendency to be decent toward others.
+    22. Patiently invite all that arises-good, bad, happy, sad.
+    23. Never give up inspiring others and contributing to the world.
+    24. Rest in the ease of synchronized mind.
+    25. Recognize that the world is free of your story lines. Notice the situation directly.
+    26. Reflect on your mistakes, make them friends, not enemies.
+    27. Create a household environment that is uplifted and wise.
+    28. Abandon harsh language.
+    29. Be sharp and quick to cut the root of arrogance and stupidity.
+    30. Dedicate all success to the benefit of others.
+
 - [Advice for a New Executive](https://larahogan.me/blog/advice-for-new-executive/) - by Lara Hogan. Takeaway: nine tips for getting off to a successful start, such as "find/create a peer support group" and "partner absurdly closely with product and make sure you understand priorities and the head of product understands tradeoffs." Comes with explanations for each tip.
 
 - [The 'Aha' Behind Leading Aha Moments](https://www.forbes.com/sites/georgebradt/2014/10/15/the-aha-behind-leading-aha-moments/#513e93a94505) - by George Bradt. Takeaway: Aha moments are pleasurable, because the experience makes us feel smarter. Making others feel smart, not making others see how smart you are, is the goal.
