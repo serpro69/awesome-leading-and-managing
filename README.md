@@ -3,7 +3,7 @@
 ## What This Is, and Where It Comes From
 Starting in 2013-ish, [Joe Greenheron](https://babka.social/@tenaciousjoe), who created the original document inspiring this list, read a crap-ton of books and articles about "leadership" and "management" and took notes along the way. He shared it with friends who were transitioning to management roles and eventually decided to share it as open source. [Here you'll find Joe's still-public document](https://docs.google.com/document/d/1R1O0OEsQpZcBcLheRlomDrmR2tyEpdRNFnjbLALmbH4/edit#heading=h.loq53mbwc6ut), which provides meatier summaries of the articles you'll find listed here as well as lots of supplementary notes.
 
-In summer 2017 Lauri Apple found out about Joe's docs via [Software Lead Weekly](http://softwareleadweekly.com/) and asked Joe about posting the contents to GitHub. He gave the greenlight. Lauri changed up the format (very brief blurbs), turned the doc into an [Awesome List](https://github.com/sindresorhus/awesome), and has continued adding new entries ever since. Helping out with the initial upload were a team of Lauri's former colleagues at [Zalando](https://jobs.zalando.com/tech/). These days the list receives [contributions](CONTRIBUTING.md) from people around the world.
+In summer 2017 Lauri Apple found out about Joe's docs via [Software Lead Weekly](http://softwareleadweekly.com/) and asked Joe about posting the contents to GitHub. He gave the greenlight. Lauri changed up the format (very brief blurbs), turned the doc into an [Awesome List](https://github.com/sindresorhus/awesome), and has continued adding new entries ever since. Helping out with the initial upload were a team of Lauri's former colleagues at [Zalando](https://jobs.zalando.com/tech/). These days the list receives [contributions](https://LappleApple.github.io/awesome-leading-and-managing/contributing/) from people around the world.
 
 - "An awesome collection of resources!" —[Angie Jones](https://twitter.com/techgirl1908/status/888771075294642178), Twitter
 - "Thanks again for putting together this tremendous resource!"—[Dave Golden](https://twitter.com/xdg), MongoDB and contributor
@@ -15,38 +15,38 @@ In summer 2017 Lauri Apple found out about Joe's docs via [Software Lead Weekly]
 - "People need to stop using the phrase 'natural-born leader.' No one is a natural born leader." — [Kate Heddleston](https://twitter.com/heddle317) 
 
 ## Contents
-- [Abilities, Qualities and Values](Abilities-Qualities-Values.md)
-- [Building Products and Startups, and OKRs](Building-Products-and-Startups-OKRs.md)
-- [Building Teams](Building-Teams.md)
-- [Conflict Prevention and Conflict Resolution](Conflict-Prevention-Resolution.md)
-- [The CTO Role](The-CTO-role.md)
-- [Culture](Culture.md)
-- [Decision-Making and Prioritization](Decision-Making-and-Prioritization.md)
-- [Delegation](Delegation.md)
-- [Diversity and Inclusion](Diversity-and-Inclusion.md)
-- [Empathy and Listening](Empathy-and-Listening.md)
-- [Firing](Firing.md)
-- [Giving Feedback, Praise, and Advice](Giving-Feedback-Praise-and-Advice.md)
-- [Hiring and Interviewing Candidates](Hiring-and-Interviewing.md)
-- [For Developers: Software Craftspersonship, Teamwork, Technical Debt](For-Developers-Teamwork-TechDebt.md)
-- [Influencing Others](Influencing-Others.md)
-- [Leadership Forums](Leadership-Forums.md)
-- [Leadership Philosophies and Styles](Leadership-Philosophies-and-Styles.md)
-- [Leading Leaders](Leading-Leaders.md)
-- [Leaving a Team](Leaving-a-Team.md)
-- [Managing Remotely](Managing-Remotely.md)
-- [Media: Blogs, Newsletters, Podcasts](Media-Blogs-Newsletters-Podcasts.md)
-- [Meetings](Meetings.md)
-- [Motivation and “Retention”](/Motivation-Retention.md)
-- [Onboarding](Onboarding.md)
-- [One-on-Ones](One-on-Ones.md)
-- [People Ops, Performance Reviews, and Goal-setting](People-Ops-Perf-Reviews-and-Goal-setting.md)
-- [Planning, Roadmaps and Processes](Planning-roadmaps.md)
-- [Postmortems and Retrospectives](Postmortems-Retrospectives.md)
-- [Productivity and Time Management](Productivity-and-Time-Management.md)
-- [Tools to Define Your Leadership Style](Tools-to-Define-Your-Leadership-Style.md)
-- [Transitioning to Management](https://github.com/LappleApple/awesome-leading-and-managing/blob/master/Transitioning%20to%20Management.md)
-- [The VP Engineering Role](The-VP-Engineering-Role.md)
+- [Abilities, Qualities and Values](https://LappleApple.github.io/awesome-leading-and-managing/Abilities-Qualities-Values/)
+- [Building Products and Startups, and OKRs](https://LappleApple.github.io/awesome-leading-and-managing/Building-Products-and-Startups-OKRs/)
+- [Building Teams](https://LappleApple.github.io/awesome-leading-and-managing/Building-Teams/)
+- [Conflict Prevention and Conflict Resolution](https://LappleApple.github.io/awesome-leading-and-managing/Conflict-Prevention-Resolution/)
+- [The CTO Role](https://LappleApple.github.io/awesome-leading-and-managing/The-CTO-role/)
+- [Culture](https://LappleApple.github.io/awesome-leading-and-managing/Culture/)
+- [Decision-Making and Prioritization](https://LappleApple.github.io/awesome-leading-and-managing/Decision-Making-and-Prioritization/)
+- [Delegation](https://LappleApple.github.io/awesome-leading-and-managing/Delegation/)
+- [Diversity and Inclusion](https://LappleApple.github.io/awesome-leading-and-managing/Diversity-and-Inclusion/)
+- [Empathy and Listening](https://LappleApple.github.io/awesome-leading-and-managing/Empathy-and-Listening/)
+- [Firing](https://LappleApple.github.io/awesome-leading-and-managing/Firing/)
+- [Giving Feedback, Praise, and Advice](https://LappleApple.github.io/awesome-leading-and-managing/Giving-Feedback-Praise-and-Advice/)
+- [Hiring and Interviewing Candidates](https://LappleApple.github.io/awesome-leading-and-managing/Hiring-and-Interviewing/)
+- [For Developers: Software Craftspersonship, Teamwork, Technical Debt](https://LappleApple.github.io/awesome-leading-and-managing/For-Developers-Teamwork-TechDebt/)
+- [Influencing Others](https://LappleApple.github.io/awesome-leading-and-managing/Influencing-Others/)
+- [Leadership Forums](https://LappleApple.github.io/awesome-leading-and-managing/Leadership-Forums/)
+- [Leadership Philosophies and Styles](https://LappleApple.github.io/awesome-leading-and-managing/Leadership-Philosophies-and-Styles/)
+- [Leading Leaders](https://LappleApple.github.io/awesome-leading-and-managing/Leading-Leaders/)
+- [Leaving a Team](https://LappleApple.github.io/awesome-leading-and-managing/Leaving-a-Team/)
+- [Managing Remotely](https://LappleApple.github.io/awesome-leading-and-managing/Managing-Remotely/)
+- [Media: Blogs, Newsletters, Podcasts](https://LappleApple.github.io/awesome-leading-and-managing/Media-Blogs-Newsletters-Podcasts/)
+- [Meetings](https://LappleApple.github.io/awesome-leading-and-managing/Meetings/)
+- [Motivation and “Retention”](https://LappleApple.github.io/awesome-leading-and-managing/Motivation-Retention/)
+- [Onboarding](https://LappleApple.github.io/awesome-leading-and-managing/Onboarding/)
+- [One-on-Ones](https://LappleApple.github.io/awesome-leading-and-managing/One-on-Ones/)
+- [People Ops, Performance Reviews, and Goal-setting](https://LappleApple.github.io/awesome-leading-and-managing/People-Ops-Perf-Reviews-and-Goal-setting/)
+- [Planning, Roadmaps and Processes](https://LappleApple.github.io/awesome-leading-and-managing/Planning-roadmaps/)
+- [Postmortems and Retrospectives](https://LappleApple.github.io/awesome-leading-and-managing/Postmortems-Retrospectives/)
+- [Productivity and Time Management](https://LappleApple.github.io/awesome-leading-and-managing/Productivity-and-Time-Management/)
+- [Tools to Define Your Leadership Style](https://LappleApple.github.io/awesome-leading-and-managing/Tools-to-Define-Your-Leadership-Style/)
+- [Transitioning to Management](https://LappleApple.github.io/awesome-leading-and-managing/Transitioning%20to%20Management/)
+- [The VP Engineering Role](https://LappleApple.github.io/awesome-leading-and-managing/The-VP-Engineering-Role/)
 
 ## FAQ
 - [Who is this for?](#who-is-this-for)
@@ -62,7 +62,7 @@ In summer 2017 Lauri Apple found out about Joe's docs via [Software Lead Weekly]
 - Managers transitioning to meta-management (managing managers)
 
 ### How can I submit a link or ask a question?
-So glad you asked! Share and promote your favorite managing and leading resources/go-to's (books, articles, Twitter feeds, videos, etc.) by reviewing the [contributor guidelines](CONTRIBUTING.md), then making a pull request (one per item/entry). For questions, go ahead and post an issue in the Issues Tracker. 
+So glad you asked! Share and promote your favorite managing and leading resources/go-to's (books, articles, Twitter feeds, videos, etc.) by reviewing the [contributor guidelines](https://LappleApple.github.io/awesome-leading-and-managing/contributing/), then making a pull request (one per item/entry). For questions, go ahead and post an issue in the Issues Tracker. 
 
 ### How can I get more info on [missing topic]?
 Please make a request via the Issues Tracker if there’s a topic you'd like this list to include.
