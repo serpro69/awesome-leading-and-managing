@@ -1,60 +1,65 @@
 # Awesome Leadership and Management [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
 ## What This Is, and Where It Comes From
+
 Starting in 2013-ish, [Joe Greenheron](https://babka.social/@tenaciousjoe), who created the original document inspiring this list, read a crap-ton of books and articles about "leadership" and "management" and took notes along the way. He shared it with friends who were transitioning to management roles and eventually decided to share it as open source. [Here you'll find Joe's still-public document](https://docs.google.com/document/d/1R1O0OEsQpZcBcLheRlomDrmR2tyEpdRNFnjbLALmbH4/edit#heading=h.loq53mbwc6ut), which provides meatier summaries of the articles you'll find listed here as well as lots of supplementary notes.
 
-In summer 2017 Lauri Apple found out about Joe's docs via [Software Lead Weekly](http://softwareleadweekly.com/) and asked Joe about posting the contents to GitHub. He gave the greenlight. Lauri changed up the format (very brief blurbs), turned the doc into an [Awesome List](https://github.com/sindresorhus/awesome), and has continued adding new entries ever since. Helping out with the initial upload were a team of Lauri's former colleagues at [Zalando](https://jobs.zalando.com/tech/). These days the list receives [contributions](https://LappleApple.github.io/awesome-leading-and-managing/contributing/) from people around the world.
+In summer 2017 Lauri Apple found out about Joe's docs via [Software Lead Weekly](http://softwareleadweekly.com/) and asked Joe about posting the contents to GitHub. He gave the greenlight. Lauri changed up the format (very brief blurbs), turned the doc into an [Awesome List](https://github.com/sindresorhus/awesome), and has continued adding new entries ever since. Helping out with the initial upload were a team of Lauri's former colleagues at [Zalando](https://jobs.zalando.com/tech/). These days the list receives [contributions](https://serpro69.github.io/awesome-leading-and-managing/contributing/) from people around the world.
 
 - "An awesome collection of resources!" —[Angie Jones](https://twitter.com/techgirl1908/status/888771075294642178), Twitter
-- "Thanks again for putting together this tremendous resource!"—[Dave Golden](https://twitter.com/xdg), MongoDB and contributor
+- "Thanks again for putting together this tremendous resource!" —[Dave Golden](https://twitter.com/xdg), MongoDB and contributor
 - "I have hunted and used this repeatedly in the last few months and referred many others to the material. So thank you—it's making a real difference in more ways than you could Imagine! :)" —Dave Igoe, via Slack
 
 ### Quotes That Capture the General Spirit of this List's Contents
+
 - "If I have seen further, it is by standing on the shoulders of giants." — Sir Isaac Newton
 - "If I have not seen as far, it is because giants were standing on my shoulders." — lots of people, including Leigh Caplan
-- "People need to stop using the phrase 'natural-born leader.' No one is a natural born leader." — [Kate Heddleston](https://twitter.com/heddle317) 
+- "People need to stop using the phrase 'natural-born leader.' No one is a natural born leader." — [Kate Heddleston](https://twitter.com/heddle317)
 
 ## Contents
-- [Abilities, Qualities and Values](https://LappleApple.github.io/awesome-leading-and-managing/Abilities-Qualities-Values/)
-- [Building Products and Startups, and OKRs](https://LappleApple.github.io/awesome-leading-and-managing/Building-Products-and-Startups-OKRs/)
-- [Building Teams](https://LappleApple.github.io/awesome-leading-and-managing/Building-Teams/)
-- [Conflict Prevention and Conflict Resolution](https://LappleApple.github.io/awesome-leading-and-managing/Conflict-Prevention-Resolution/)
-- [The CTO Role](https://LappleApple.github.io/awesome-leading-and-managing/The-CTO-role/)
-- [Culture](https://LappleApple.github.io/awesome-leading-and-managing/Culture/)
-- [Decision-Making and Prioritization](https://LappleApple.github.io/awesome-leading-and-managing/Decision-Making-and-Prioritization/)
-- [Delegation](https://LappleApple.github.io/awesome-leading-and-managing/Delegation/)
-- [Diversity and Inclusion](https://LappleApple.github.io/awesome-leading-and-managing/Diversity-and-Inclusion/)
-- [Empathy and Listening](https://LappleApple.github.io/awesome-leading-and-managing/Empathy-and-Listening/)
-- [Firing](https://LappleApple.github.io/awesome-leading-and-managing/Firing/)
-- [Giving Feedback, Praise, and Advice](https://LappleApple.github.io/awesome-leading-and-managing/Giving-Feedback-Praise-and-Advice/)
-- [Hiring and Interviewing Candidates](https://LappleApple.github.io/awesome-leading-and-managing/Hiring-and-Interviewing/)
-- [For Developers: Software Craftspersonship, Teamwork, Technical Debt](https://LappleApple.github.io/awesome-leading-and-managing/For-Developers-Teamwork-TechDebt/)
-- [Influencing Others](https://LappleApple.github.io/awesome-leading-and-managing/Influencing-Others/)
-- [Leadership Forums](https://LappleApple.github.io/awesome-leading-and-managing/Leadership-Forums/)
-- [Leadership Philosophies and Styles](https://LappleApple.github.io/awesome-leading-and-managing/Leadership-Philosophies-and-Styles/)
-- [Leading Leaders](https://LappleApple.github.io/awesome-leading-and-managing/Leading-Leaders/)
-- [Leaving a Team](https://LappleApple.github.io/awesome-leading-and-managing/Leaving-a-Team/)
-- [Managing Remotely](https://LappleApple.github.io/awesome-leading-and-managing/Managing-Remotely/)
-- [Media: Blogs, Newsletters, Podcasts](https://LappleApple.github.io/awesome-leading-and-managing/Media-Blogs-Newsletters-Podcasts/)
-- [Meetings](https://LappleApple.github.io/awesome-leading-and-managing/Meetings/)
-- [Motivation and “Retention”](https://LappleApple.github.io/awesome-leading-and-managing/Motivation-Retention/)
-- [Onboarding](https://LappleApple.github.io/awesome-leading-and-managing/Onboarding/)
-- [One-on-Ones](https://LappleApple.github.io/awesome-leading-and-managing/One-on-Ones/)
-- [People Ops, Performance Reviews, and Goal-setting](https://LappleApple.github.io/awesome-leading-and-managing/People-Ops-Perf-Reviews-and-Goal-setting/)
-- [Planning, Roadmaps and Processes](https://LappleApple.github.io/awesome-leading-and-managing/Planning-roadmaps/)
-- [Postmortems and Retrospectives](https://LappleApple.github.io/awesome-leading-and-managing/Postmortems-Retrospectives/)
-- [Productivity and Time Management](https://LappleApple.github.io/awesome-leading-and-managing/Productivity-and-Time-Management/)
-- [Tools to Define Your Leadership Style](https://LappleApple.github.io/awesome-leading-and-managing/Tools-to-Define-Your-Leadership-Style/)
-- [Transitioning to Management](https://LappleApple.github.io/awesome-leading-and-managing/Transitioning%20to%20Management/)
-- [The VP Engineering Role](https://LappleApple.github.io/awesome-leading-and-managing/The-VP-Engineering-Role/)
+
+- [Abilities, Qualities and Values](https://serpro69.github.io/awesome-leading-and-managing/Abilities-Qualities-Values/)
+- [Building Products and Startups, and OKRs](https://serpro69.github.io/awesome-leading-and-managing/Building-Products-and-Startups-OKRs/)
+- [Building Teams](https://serpro69.github.io/awesome-leading-and-managing/Building-Teams/)
+- [Conflict Prevention and Conflict Resolution](https://serpro69.github.io/awesome-leading-and-managing/Conflict-Prevention-Resolution/)
+- [The CTO Role](https://serpro69.github.io/awesome-leading-and-managing/The-CTO-role/)
+- [Culture](https://serpro69.github.io/awesome-leading-and-managing/Culture/)
+- [Decision-Making and Prioritization](https://serpro69.github.io/awesome-leading-and-managing/Decision-Making-and-Prioritization/)
+- [Delegation](https://serpro69.github.io/awesome-leading-and-managing/Delegation/)
+- [Diversity and Inclusion](https://serpro69.github.io/awesome-leading-and-managing/Diversity-and-Inclusion/)
+- [Empathy and Listening](https://serpro69.github.io/awesome-leading-and-managing/Empathy-and-Listening/)
+- [Firing](https://serpro69.github.io/awesome-leading-and-managing/Firing/)
+- [Giving Feedback, Praise, and Advice](https://serpro69.github.io/awesome-leading-and-managing/Giving-Feedback-Praise-and-Advice/)
+- [Hiring and Interviewing Candidates](https://serpro69.github.io/awesome-leading-and-managing/Hiring-and-Interviewing/)
+- [For Developers: Software Craftspersonship, Teamwork, Technical Debt](https://serpro69.github.io/awesome-leading-and-managing/For-Developers-Teamwork-TechDebt/)
+- [Influencing Others](https://serpro69.github.io/awesome-leading-and-managing/Influencing-Others/)
+- [Leadership Forums](https://serpro69.github.io/awesome-leading-and-managing/Leadership-Forums/)
+- [Leadership Philosophies and Styles](https://serpro69.github.io/awesome-leading-and-managing/Leadership-Philosophies-and-Styles/)
+- [Leading Leaders](https://serpro69.github.io/awesome-leading-and-managing/Leading-Leaders/)
+- [Leaving a Team](https://serpro69.github.io/awesome-leading-and-managing/Leaving-a-Team/)
+- [Managing Remotely](https://serpro69.github.io/awesome-leading-and-managing/Managing-Remotely/)
+- [Media: Blogs, Newsletters, Podcasts](https://serpro69.github.io/awesome-leading-and-managing/Media-Blogs-Newsletters-Podcasts/)
+- [Meetings](https://serpro69.github.io/awesome-leading-and-managing/Meetings/)
+- [Motivation and “Retention”](https://serpro69.github.io/awesome-leading-and-managing/Motivation-Retention/)
+- [Onboarding](https://serpro69.github.io/awesome-leading-and-managing/Onboarding/)
+- [One-on-Ones](https://serpro69.github.io/awesome-leading-and-managing/One-on-Ones/)
+- [People Ops, Performance Reviews, and Goal-setting](https://serpro69.github.io/awesome-leading-and-managing/People-Ops-Perf-Reviews-and-Goal-setting/)
+- [Planning, Roadmaps and Processes](https://serpro69.github.io/awesome-leading-and-managing/Planning-roadmaps/)
+- [Postmortems and Retrospectives](https://serpro69.github.io/awesome-leading-and-managing/Postmortems-Retrospectives/)
+- [Productivity and Time Management](https://serpro69.github.io/awesome-leading-and-managing/Productivity-and-Time-Management/)
+- [Tools to Define Your Leadership Style](https://serpro69.github.io/awesome-leading-and-managing/Tools-to-Define-Your-Leadership-Style/)
+- [Transitioning to Management](https://serpro69.github.io/awesome-leading-and-managing/Transitioning%20to%20Management/)
+- [The VP Engineering Role](https://serpro69.github.io/awesome-leading-and-managing/The-VP-Engineering-Role/)
 
 ## FAQ
+
 - [Who is this for?](#who-is-this-for)
 - [How can I submit a link or ask a question?](#how-can-i-submit-a-link-or-ask-a-question)
 - [How can I get more info on [missing topic]?](#how-can-i-get-more-info-on-missing-topic)
 - [Did you write all this yourself?](#did-you-write-all-this-yourself-creditattribution)
 
 ### Who is this for?
+
 - Individual contributors (ICs) considering a move to management
 - ICs who want to stay ICs but want to have more influence in their orgs
 - ICs who recently moved into a management role
@@ -62,12 +67,15 @@ In summer 2017 Lauri Apple found out about Joe's docs via [Software Lead Weekly]
 - Managers transitioning to meta-management (managing managers)
 
 ### How can I submit a link or ask a question?
-So glad you asked! Share and promote your favorite managing and leading resources/go-to's (books, articles, Twitter feeds, videos, etc.) by reviewing the [contributor guidelines](https://LappleApple.github.io/awesome-leading-and-managing/contributing/), then making a pull request (one per item/entry). For questions, go ahead and post an issue in the Issues Tracker. 
+
+So glad you asked! Share and promote your favorite managing and leading resources/go-to's (books, articles, Twitter feeds, videos, etc.) by reviewing the [contributor guidelines](https://serpro69.github.io/awesome-leading-and-managing/contributing/), then making a pull request (one per item/entry). For questions, go ahead and post an issue in the Issues Tracker.
 
 ### How can I get more info on [missing topic]?
+
 Please make a request via the Issues Tracker if there’s a topic you'd like this list to include.
 
 ### Did you write all this yourself? (Credit/Attribution)
+
 Almost none of the content shared in this list is by the authors. Where there’s a link, the content below it is generally a summary of the linked webpage. When there’s no link, it’s either original content or gives credit/attribution. Some book summaries are from [Personal MBA](https://personalmba.com/), which Joe piloted and consulted on, but not to the extent where he is willing to take credit for its content.
 
 ### License
