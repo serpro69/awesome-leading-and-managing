@@ -157,6 +157,32 @@ def already_ok(fp):
         return False
 
 
+def file_status(fp):
+    """Return the status recorded in a source file's frontmatter, or None."""
+    if not os.path.exists(fp):
+        return None
+    try:
+        with open(fp, encoding="utf-8") as f:
+            head = f.read(600)
+    except OSError:
+        return None
+    m = re.search(r'status: "(\w+)"', head)
+    return m.group(1) if m else None
+
+
+def rebuild_manifest(links):
+    """Rewrite manifest.csv from the current on-disk status of every source."""
+    rows = []
+    for rec in links:
+        fp = target_path(rec)
+        rows.append((file_status(fp) or "missing", rec["topic"], rec["title"],
+                     rec["domain"], rec["url"], os.path.relpath(fp, OUT)))
+    with open(MANIFEST, "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["status", "topic", "title", "domain", "url", "file"])
+        w.writerows(rows)
+
+
 def extract_md(url):
     """Fetch + extract to markdown. Returns md string or None."""
     dl = trafilatura.fetch_url(url, config=CFG)
@@ -223,14 +249,79 @@ def process(rec):
         return (rec, "error", fp)
 
 
+def run_playwright_pass(links, nav_timeout=30000, settle_ms=2500):
+    """Retry every 'failed' source with a real headless browser.
+
+    Playwright follows redirects natively (trafilatura's fetch does not), so
+    this also fixes sources that 30x to another host/subdomain.
+    """
+    from playwright.sync_api import sync_playwright  # noqa
+
+    cands = [r for r in links
+             if not is_stub(r["url"]) and file_status(target_path(r)) == "failed"]
+    log(f"Playwright pass: {len(cands)} failed URLs to retry")
+    counts = {}
+
+    def block(route):
+        if route.request.resource_type in ("image", "media", "font"):
+            route.abort()
+        else:
+            route.continue_()
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        for i, rec in enumerate(cands, 1):
+            status = "failed"
+            try:
+                page = browser.new_page(user_agent=UA)
+                page.route("**/*", block)
+                page.goto(rec["url"], wait_until="domcontentloaded",
+                          timeout=nav_timeout)
+                page.wait_for_timeout(settle_ms)
+                html = page.content()
+                final_url = page.url
+                page.close()
+                md = trafilatura.extract(
+                    html, output_format="markdown", include_links=True,
+                    include_images=False, include_comments=False,
+                    favor_precision=True, config=CFG,
+                )
+                if md and len(md) >= 200:
+                    header = f"# {rec['title']}\n\n[Open original]({rec['url']})\n\n"
+                    if final_url and final_url.rstrip("/") != rec["url"].rstrip("/"):
+                        header += f"> Redirected to <{final_url}>\n\n"
+                    write_file(rec, "playwright", header + "---\n\n" + md)
+                    status = "playwright"
+                else:
+                    write_file(rec, "failed",
+                               "> No readable content after browser render.\n")
+            except Exception as e:  # noqa
+                write_file(rec, "failed", f"> Playwright error: {repr(e)[:150]}\n")
+                status = "error"
+            counts[status] = counts.get(status, 0) + 1
+            if i % 10 == 0 or status == "playwright":
+                log(f"{i}/{len(cands)} [{status}] {rec['domain']} :: "
+                    f"{rec['title'][:45]}")
+        browser.close()
+
+    rebuild_manifest(links)
+    log(f"Playwright DONE. {counts} | manifest: {MANIFEST}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--workers", type=int, default=6)
+    ap.add_argument("--playwright", action="store_true",
+                    help="retry 'failed' sources with a headless browser")
     args = ap.parse_args()
 
     os.makedirs(OUT, exist_ok=True)
     links = collect_links()
+    if args.playwright:
+        log(f"Collected {len(links)} unique URLs from {DOCS}")
+        run_playwright_pass(links)
+        return
     total = len(links)
     log(f"Collected {total} unique URLs from {DOCS}")
 
