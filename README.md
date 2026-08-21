@@ -18,38 +18,7 @@ In summer 2017 Lauri Apple found out about Joe's docs via [Software Lead Weekly]
 
 ## Contents
 
-- [Abilities, Qualities and Values](https://serpro69.github.io/awesome-leading-and-managing/Abilities-Qualities-Values/)
-- [Building Products and Startups, and OKRs](https://serpro69.github.io/awesome-leading-and-managing/Building-Products-and-Startups-OKRs/)
-- [Building Teams](https://serpro69.github.io/awesome-leading-and-managing/Building-Teams/)
-- [Conflict Prevention and Conflict Resolution](https://serpro69.github.io/awesome-leading-and-managing/Conflict-Prevention-Resolution/)
-- [The CTO Role](https://serpro69.github.io/awesome-leading-and-managing/The-CTO-role/)
-- [Culture](https://serpro69.github.io/awesome-leading-and-managing/Culture/)
-- [Decision-Making and Prioritization](https://serpro69.github.io/awesome-leading-and-managing/Decision-Making-and-Prioritization/)
-- [Delegation](https://serpro69.github.io/awesome-leading-and-managing/Delegation/)
-- [Diversity and Inclusion](https://serpro69.github.io/awesome-leading-and-managing/Diversity-and-Inclusion/)
-- [Empathy and Listening](https://serpro69.github.io/awesome-leading-and-managing/Empathy-and-Listening/)
-- [Firing](https://serpro69.github.io/awesome-leading-and-managing/Firing/)
-- [Giving Feedback, Praise, and Advice](https://serpro69.github.io/awesome-leading-and-managing/Giving-Feedback-Praise-and-Advice/)
-- [Hiring and Interviewing Candidates](https://serpro69.github.io/awesome-leading-and-managing/Hiring-and-Interviewing/)
-- [For Developers: Software Craftspersonship, Teamwork, Technical Debt](https://serpro69.github.io/awesome-leading-and-managing/For-Developers-Teamwork-TechDebt/)
-- [Influencing Others](https://serpro69.github.io/awesome-leading-and-managing/Influencing-Others/)
-- [Leadership Forums](https://serpro69.github.io/awesome-leading-and-managing/Leadership-Forums/)
-- [Leadership Philosophies and Styles](https://serpro69.github.io/awesome-leading-and-managing/Leadership-Philosophies-and-Styles/)
-- [Leading Leaders](https://serpro69.github.io/awesome-leading-and-managing/Leading-Leaders/)
-- [Leaving a Team](https://serpro69.github.io/awesome-leading-and-managing/Leaving-a-Team/)
-- [Managing Remotely](https://serpro69.github.io/awesome-leading-and-managing/Managing-Remotely/)
-- [Media: Blogs, Newsletters, Podcasts](https://serpro69.github.io/awesome-leading-and-managing/Media-Blogs-Newsletters-Podcasts/)
-- [Meetings](https://serpro69.github.io/awesome-leading-and-managing/Meetings/)
-- [Motivation and “Retention”](https://serpro69.github.io/awesome-leading-and-managing/Motivation-Retention/)
-- [Onboarding](https://serpro69.github.io/awesome-leading-and-managing/Onboarding/)
-- [One-on-Ones](https://serpro69.github.io/awesome-leading-and-managing/One-on-Ones/)
-- [People Ops, Performance Reviews, and Goal-setting](https://serpro69.github.io/awesome-leading-and-managing/People-Ops-Perf-Reviews-and-Goal-setting/)
-- [Planning, Roadmaps and Processes](https://serpro69.github.io/awesome-leading-and-managing/Planning-roadmaps/)
-- [Postmortems and Retrospectives](https://serpro69.github.io/awesome-leading-and-managing/Postmortems-Retrospectives/)
-- [Productivity and Time Management](https://serpro69.github.io/awesome-leading-and-managing/Productivity-and-Time-Management/)
-- [Tools to Define Your Leadership Style](https://serpro69.github.io/awesome-leading-and-managing/Tools-to-Define-Your-Leadership-Style/)
-- [Transitioning to Management](https://serpro69.github.io/awesome-leading-and-managing/Transitioning%20to%20Management/)
-- [The VP Engineering Role](https://serpro69.github.io/awesome-leading-and-managing/The-VP-Engineering-Role/)
+Full contents are published to github pages for easier reading and navigation, and available at: <https://serpro69.github.io/awesome-leading-and-managing/>
 
 ## FAQ
 
