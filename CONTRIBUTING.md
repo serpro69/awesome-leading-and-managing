@@ -1,6 +1,6 @@
 ## Contribution Guidelines
 
-Please note that this project is released with a [Contributor Code of Conduct](code-of-conduct.md). By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of Conduct](https://serpro69.github.io/awesome-leading-and-managing/code-of-conduct/). By participating in this project you agree to abide by its terms.
 
 The pull request should have a useful title. We are unlikely to accept pull requests with `Update readme.md` as the title. Please carefully read everything in `Adding to this list`.
 
@@ -14,14 +14,14 @@ The pull request should have a useful title. We are unlikely to accept pull requ
 Please ensure your pull request adheres to the following guidelines:
 
 - Look at previous suggestions before making a new one, as yours may be a duplicate.
-- Make sure the entry is useful before submitting. That implies it has the author's name and a succinct description/"takeaway" after the link. 
+- Make sure the entry is useful before submitting. That implies it has the author's name and a succinct description/"takeaway" after the link.
   - **The entry format** should follow this model: `[The Title of Your Article](link) - by author. Takeaway: ...`
   - Use a **-** to separate the link and description.
-- Takeaways should avoid sub-bullets and be complete sentences. 
+- Takeaways should avoid sub-bullets and be complete sentences.
 - Use **quotation marks** when you're quoting verbatim.
 - Make **one individual pull request per each new entry/suggestion**.
 - Use [title-casing](https://titlecaseconverter.com) (AP style), regardless of the style used by the original article.
-- Add link additions in **alphabetical order**. 
+- Add link additions in **alphabetical order**.
   - Disregard articles (**the/an/a**) coming at the beginning of titles and use the next word.
 - New categories or improvements to the existing categorization are welcome.
 - Check your spelling and grammar.
@@ -43,4 +43,5 @@ You'll need a [GitHub account](https://github.com/join)!
 6. Submit the [pull request](https://help.github.com/articles/using-pull-requests/)!
 
 ## Updating your Pull Request: How-to Info
+
 We might ask you to edit your pull request before including it, due to spelling errors or because your PR didn't follow the guidelines. [Here](https://www.burntfen.com/2015-10-30/how-to-amend-a-commit-on-a-github-pull-request) is a write-up on how to change a pull request.

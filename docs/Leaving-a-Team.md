@@ -16,7 +16,7 @@
 
 ## Returning to IC
 
-💡 A helpful counterpoint to [Transitioning to Management](https://github.com/LappleApple/awesome-leading-and-managing/blob/master/Transitioning%20to%20Management.md).
+💡 A helpful counterpoint to [Transitioning to Management](https://serpro69.github.io/awesome-leading-and-managing/Transitioning%20to%20Management/).
 
 - [I Didn't Want to Be a Manager Anymore—and the World Didn't End](https://engineering.gusto.com/i-didnt-want-to-be-a-manager-anymore-and-the-world-didnt-end/) - by Noa Elad. Takeaway: A personal account of advocating for a leadership role and how to handle things when the role isn't actually what you want.
 

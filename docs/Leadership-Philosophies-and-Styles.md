@@ -114,7 +114,7 @@ Amateurs don’t have any idea what improves the odds of achieving good outcomes
 
 - [Self Leadership for Agility](https://www.infoq.com/articles/self-leadership-agility) - by Ben Linders. Takeaway: a chat with Christopher Avery, who advocates the belief that "leading others starts with leading yourself."
 
-- [Simon Sinek: Leaders Eat Last](https://www.youtube.com/watch?v=ReRcHdeUG9Y) (video) - For a detailed summary by Joe Goldberg, [go here](https://github.com/LappleApple/awesome-leading-and-managing/blob/master/Simon%20Sinek:%20Leaders%20Eat%20Last%20Summary.md).
+- [Simon Sinek: Leaders Eat Last](https://www.youtube.com/watch?v=ReRcHdeUG9Y) (video) - For a detailed summary by Joe Goldberg, [go here](https://serpro69.github.io/awesome-leading-and-managing/notes/Simon%20Sinek:%20Leaders%20Eat%20Last%20Summary.md).
 
 - [Six Crucial Behaviors Of Collaborative Leaders](https://www.forbes.com/sites/carolkinseygoman/2017/07/11/six-crucial-behaviors-of-collaborative-leaders/#4050a9e38cbe) - by Carol Kinsey Goman. Takeaway: Silo-busting, building trust, aligning body language, promoting diversity, sharpening "soft" skills, and creating psychological safety are the six behaviors leaders need.
 
