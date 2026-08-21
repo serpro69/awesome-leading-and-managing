@@ -1,0 +1,93 @@
+site_name: Awesome Leading and Managing
+site_description: An awesome collection of resources on leadership and management.
+site_url: https://LappleApple.github.io/awesome-leading-and-managing/
+repo_url: https://github.com/LappleApple/awesome-leading-and-managing
+repo_name: LappleApple/awesome-leading-and-managing
+edit_uri: edit/master/
+
+docs_dir: docs
+
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.action.edit
+    - toc.follow
+
+plugins:
+  - search
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.snippets:
+      base_path:
+        - .
+        - docs
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - Home: index.md
+  - Abilities, Qualities and Values: Abilities-Qualities-Values.md
+  - Building Products and Startups, and OKRs: Building-Products-and-Startups-OKRs.md
+  - Building Teams: Building-Teams.md
+  - Conflict Prevention and Conflict Resolution: Conflict-Prevention-Resolution.md
+  - The CTO Role: The-CTO-role.md
+  - Culture: Culture.md
+  - Decision-Making and Prioritization: Decision-Making-and-Prioritization.md
+  - Delegation: Delegation.md
+  - Diversity and Inclusion: Diversity-and-Inclusion.md
+  - Empathy and Listening: Empathy-and-Listening.md
+  - Firing: Firing.md
+  - Giving Feedback, Praise, and Advice: Giving-Feedback-Praise-and-Advice.md
+  - Hiring and Interviewing Candidates: Hiring-and-Interviewing.md
+  - "For Developers: Software Craftspersonship, Teamwork, Technical Debt": For-Developers-Teamwork-TechDebt.md
+  - Influencing Others: Influencing-Others.md
+  - Leadership Forums: Leadership-Forums.md
+  - Leadership Philosophies and Styles: Leadership-Philosophies-and-Styles.md
+  - Leading Leaders: Leading-Leaders.md
+  - Leaving a Team: Leaving-a-Team.md
+  - Managing Remotely: Managing-Remotely.md
+  - "Media: Blogs, Newsletters, Podcasts": Media-Blogs-Newsletters-Podcasts.md
+  - Meetings: Meetings.md
+  - Motivation and Retention: Motivation-Retention.md
+  - Onboarding: Onboarding.md
+  - One-on-Ones: One-on-Ones.md
+  - People Ops, Performance Reviews, and Goal-setting: People-Ops-Perf-Reviews-and-Goal-setting.md
+  - Planning, Roadmaps and Processes: Planning-roadmaps.md
+  - Postmortems and Retrospectives: Postmortems-Retrospectives.md
+  - Productivity and Time Management: Productivity-and-Time-Management.md
+  - Tools to Define Your Leadership Style: Tools-to-Define-Your-Leadership-Style.md
+  - Transitioning to Management: Transitioning to Management.md
+  - The VP Engineering Role: The-VP-Engineering-Role.md
+  - About:
+      - Contributing: contributing.md
+      - Code of Conduct: code-of-conduct.md
+      - Maintainers: maintainers.md
+      - License: license.md

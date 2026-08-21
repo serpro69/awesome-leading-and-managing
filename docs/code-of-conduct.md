@@ -1,0 +1,1 @@
+--8<-- "code-of-conduct.md"
