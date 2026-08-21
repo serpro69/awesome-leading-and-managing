@@ -1,2 +1,6 @@
+mkdocs
 mkdocs-material
 mkdocs-same-dir
+# plugins
+mkdocs-minify-plugin
+mkdocs-panzoom-plugin
