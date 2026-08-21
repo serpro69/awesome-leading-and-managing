@@ -146,15 +146,13 @@ def target_path(rec):
     return os.path.join(OUT, rec["topic"], slugify(rec["title"], rec["url"]) + ".md")
 
 
+# A source is considered done (never overwritten on re-run) once it has any
+# successful status. Only failed/error/missing are retried.
+KEEP_STATUS = {"ok", "stub", "archived", "playwright"}
+
+
 def already_ok(fp):
-    if not os.path.exists(fp):
-        return False
-    try:
-        with open(fp, encoding="utf-8") as f:
-            head = f.read(600)
-        return 'status: "ok"' in head or 'status: "stub"' in head
-    except OSError:
-        return False
+    return file_status(fp) in KEEP_STATUS
 
 
 def file_status(fp):
