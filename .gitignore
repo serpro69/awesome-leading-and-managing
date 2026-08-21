@@ -42,3 +42,5 @@ bench-results/
 
 # mkdocs build output
 /site/
+
+__pycache__/
