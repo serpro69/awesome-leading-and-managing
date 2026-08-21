@@ -5,11 +5,13 @@
 - [CTO vs VP Engineering: What’s the Difference?](https://www.ivyexec.com/career-advice/2015/cto-versus-vp-engineering-whats-the-difference/) - by Ivy Exec. Takeaway: Spells out some of the key differences between the roles, and also touches upon program management.
 
 - [Director to VP Engineering: What Is Expected and How to Prepare?](https://wtwangbu.medium.com/director-to-vp-engineering-what-is-expected-and-how-to-prepare-338460f1f77d) - by Tao Wang. Takeaway: Insights into making the transition.
- 
+
 - [Hire a VP of Engineering](https://a16z.com/2017/05/26/hire-a-vp-of-engineering) - by Martin Casado. Takeaway: A VPE is responsible for product planning, building the engineering team and culture, ensuring execution, maintaining morale, delivering quality releases on time.
 
-- [The Role of a VP of Engineering](https://blog.brunomiranda.com/the-role-of-a-vp-of-engineering-648a09a3ad56) - by Bruno Miranda. Takeaway: VPEs are measured by the success of their team; set process in terms of "*why* we do what we do"; keep coding; manage up and down.
+- [The Role of a VP of Engineering](https://blog.brunomiranda.com/the-role-of-a-vp-of-engineering-648a09a3ad56) - by Bruno Miranda. Takeaway: VPEs are measured by the success of their team; set process in terms of "_why_ we do what we do"; keep coding; manage up and down.
 
 - [What Does a VP of Engineering Do?](https://medium.com/@dandemeyere/what-does-a-vp-of-engineering-do-75da2086f74d) - by Dan DeMeyere. Takeaway: "VP’s of Engineering are essential to making sure the trains run on time and identifying the best way to lay down tracks. If the CTO knows the destination, the VPE is identifying the route to get there."
 
 - [“What Does a VP of Engineering Do, Again?”](https://medium.com/@raffi/what-does-a-vp-of-engineering-do-again-553817fbbf2a) - by Raffi Krikorian & Dave Loftesness. Takeaway: a VP Engineering's primary duties involve "establishing focus; leading and designing the engineering org; and representing engineering at the leadership level."
+
+- [VP Engineering Vs CTO](https://avc.com/2011/10/vp-engineering-vs-cto/) - by Fred Wilson. Takeaway: Like VP Finance & CFO, the differences in the two positions are not just about seniority. A VP Engineering is ideally a great manager and a great team builder. A CTO is ideally the strongest technologist in the organization. When a company has a strong CTO and a strong VP Engineering that trust, respect, and like each other, you have a winning formula.
