@@ -1,6 +1,6 @@
 # Leading and Managing Remotely
 
-Please add your favorite articles, videos, and other resources — just follow the [Contributing guidelines](https://github.com/LappleApple/awesome-leading-and-managing/blob/master/CONTRIBUTING.md) and go! :)
+Please add your favorite articles, videos, and other resources — just follow the [Contributing guidelines](https://serpro69.github.io/awesome-leading-and-managing/about/contributing/) and go! :)
 
 - [Collaborate and Conquer: Make Magic Happen with Globally Distributed, Cross Functional Teams](https://www.agilealliance.org/resources/videos/collaborate-and-conquer-make-magic-happen-with-globally-distributed-cross-functional-teams-ruchika-bhargava/) - by Ruchika Bhargava. Takeaway: Video of Bhargava's Agile Alliance talk focusing on how agility and collaboration have enabled her global organization to deliver for decades. 
 

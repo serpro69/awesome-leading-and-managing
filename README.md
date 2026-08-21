@@ -80,4 +80,4 @@ Almost none of the content shared in this list is by the authors. Where there’
 
 ### License
 
-[![CC0](http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+See [LICENSE.md](https://serpro69.github.io/awesome-leading-and-managing/about/license/)

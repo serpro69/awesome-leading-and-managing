@@ -1,8 +1,8 @@
 site_name: Awesome Leading and Managing
 site_description: An awesome collection of resources on leadership and management.
-site_url: https://LappleApple.github.io/awesome-leading-and-managing/
-repo_url: https://github.com/LappleApple/awesome-leading-and-managing
-repo_name: LappleApple/awesome-leading-and-managing
+site_url: https://serpro69.github.io/awesome-leading-and-managing/
+repo_url: https://github.com/serpro69/awesome-leading-and-managing
+repo_name: serpro69/awesome-leading-and-managing
 edit_uri: edit/master/
 
 docs_dir: docs
@@ -86,8 +86,11 @@ nav:
   - Tools to Define Your Leadership Style: Tools-to-Define-Your-Leadership-Style.md
   - Transitioning to Management: Transitioning to Management.md
   - The VP Engineering Role: The-VP-Engineering-Role.md
+  - Notes:
+      - notes/index.md
+      - "Simon Sinek: Leaders Eat Last": notes/Simon_Sinek_-_Leaders-Eat-Last.md
   - About:
-      - Contributing: contributing.md
-      - Code of Conduct: code-of-conduct.md
-      - Maintainers: maintainers.md
-      - License: license.md
+      - Contributing: about/contributing.md
+      - Code of Conduct: about/code-of-conduct.md
+      - Maintainers: about/maintainers.md
+      - License: about/license.md
