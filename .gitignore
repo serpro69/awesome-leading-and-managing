@@ -29,14 +29,7 @@ logs
 !.codex
 .claude/worktrees
 
-# formulae for homebrew
-# here only for convenience, see serpro69/homebrew-tap repo
-homebrew/
-
-# binaries
-/capy
 .capy/**
-
 !.capy
 !.capy/AGENTS.md
 !.capy/knowledge.db
@@ -44,8 +37,8 @@ homebrew/
 # benchmark results (local only)
 bench-results/
 
-# benchmark scaffold as a symlink for easier development
-capy-bench
-
 # external stuff
 /ext-*
+
+# mkdocs build output
+/site/
