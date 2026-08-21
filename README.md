@@ -10,6 +10,10 @@ In summer 2017 Lauri Apple found out about Joe's docs via [Software Lead Weekly]
 - "Thanks again for putting together this tremendous resource!" —[Dave Golden](https://twitter.com/xdg), MongoDB and contributor
 - "I have hunted and used this repeatedly in the last few months and referred many others to the material. So thank you—it's making a real difference in more ways than you could Imagine! :)" —Dave Igoe, via Slack
 
+!!! note
+    This list is mostly an index, covering various leadership topics and areas, with links to original blog-posts, articles, books, youtube videos, and so on.  
+    There are also some notes/summaries on the above sources.
+
 ### Quotes That Capture the General Spirit of this List's Contents
 
 - "If I have seen further, it is by standing on the shoulders of giants." — Sir Isaac Newton
