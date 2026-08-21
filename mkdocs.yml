@@ -1,9 +1,13 @@
+---
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+
 site_name: Awesome Leading and Managing
 site_description: An awesome collection of resources on leadership and management.
 site_url: https://serpro69.github.io/awesome-leading-and-managing/
 repo_url: https://github.com/serpro69/awesome-leading-and-managing
 repo_name: serpro69/awesome-leading-and-managing
 edit_uri: edit/master/
+copyright: Copyright &copy; 2026 - present, serpro69
 
 docs_dir: docs
 
@@ -11,6 +15,7 @@ theme:
   name: material
   icon:
     repo: fontawesome/brands/github
+    logo: material/sunglasses
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -23,17 +28,38 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
   features:
-    - navigation.instant
-    - navigation.tracking
-    - navigation.top
-    - navigation.footer
-    - search.suggest
-    - search.highlight
+    - announce.dismiss
     - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    # - content.code.select
+    # - content.footnote.tooltips
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    # - navigation.instant.progress
+    # - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
     - toc.follow
 
 plugins:
-  - search
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
 
 markdown_extensions:
   - toc:
@@ -53,39 +79,40 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 nav:
-  - Home: index.md
-  - Abilities, Qualities and Values: Abilities-Qualities-Values.md
-  - Building Products and Startups, and OKRs: Building-Products-and-Startups-OKRs.md
-  - Building Teams: Building-Teams.md
-  - Conflict Prevention and Conflict Resolution: Conflict-Prevention-Resolution.md
-  - The CTO Role: The-CTO-role.md
-  - Culture: Culture.md
-  - Decision-Making and Prioritization: Decision-Making-and-Prioritization.md
-  - Delegation: Delegation.md
-  - Diversity and Inclusion: Diversity-and-Inclusion.md
-  - Empathy and Listening: Empathy-and-Listening.md
-  - Firing: Firing.md
-  - Giving Feedback, Praise, and Advice: Giving-Feedback-Praise-and-Advice.md
-  - Hiring and Interviewing Candidates: Hiring-and-Interviewing.md
-  - "For Developers: Software Craftspersonship, Teamwork, Technical Debt": For-Developers-Teamwork-TechDebt.md
-  - Influencing Others: Influencing-Others.md
-  - Leadership Forums: Leadership-Forums.md
-  - Leadership Philosophies and Styles: Leadership-Philosophies-and-Styles.md
-  - Leading Leaders: Leading-Leaders.md
-  - Leaving a Team: Leaving-a-Team.md
-  - Managing Remotely: Managing-Remotely.md
-  - "Media: Blogs, Newsletters, Podcasts": Media-Blogs-Newsletters-Podcasts.md
-  - Meetings: Meetings.md
-  - Motivation and Retention: Motivation-Retention.md
-  - Onboarding: Onboarding.md
-  - One-on-Ones: One-on-Ones.md
-  - People Ops, Performance Reviews, and Goal-setting: People-Ops-Perf-Reviews-and-Goal-setting.md
-  - Planning, Roadmaps and Processes: Planning-roadmaps.md
-  - Postmortems and Retrospectives: Postmortems-Retrospectives.md
-  - Productivity and Time Management: Productivity-and-Time-Management.md
-  - Tools to Define Your Leadership Style: Tools-to-Define-Your-Leadership-Style.md
-  - Transitioning to Management: Transitioning to Management.md
-  - The VP Engineering Role: The-VP-Engineering-Role.md
+  - Home:
+    - index.md
+    - Abilities, Qualities and Values: Abilities-Qualities-Values.md
+    - Building Products and Startups, and OKRs: Building-Products-and-Startups-OKRs.md
+    - Building Teams: Building-Teams.md
+    - Conflict Prevention and Conflict Resolution: Conflict-Prevention-Resolution.md
+    - The CTO Role: The-CTO-role.md
+    - Culture: Culture.md
+    - Decision-Making and Prioritization: Decision-Making-and-Prioritization.md
+    - Delegation: Delegation.md
+    - Diversity and Inclusion: Diversity-and-Inclusion.md
+    - Empathy and Listening: Empathy-and-Listening.md
+    - Firing: Firing.md
+    - Giving Feedback, Praise, and Advice: Giving-Feedback-Praise-and-Advice.md
+    - Hiring and Interviewing Candidates: Hiring-and-Interviewing.md
+    - "For Developers: Software Craftspersonship, Teamwork, Technical Debt": For-Developers-Teamwork-TechDebt.md
+    - Influencing Others: Influencing-Others.md
+    - Leadership Forums: Leadership-Forums.md
+    - Leadership Philosophies and Styles: Leadership-Philosophies-and-Styles.md
+    - Leading Leaders: Leading-Leaders.md
+    - Leaving a Team: Leaving-a-Team.md
+    - Managing Remotely: Managing-Remotely.md
+    - "Media: Blogs, Newsletters, Podcasts": Media-Blogs-Newsletters-Podcasts.md
+    - Meetings: Meetings.md
+    - Motivation and Retention: Motivation-Retention.md
+    - Onboarding: Onboarding.md
+    - One-on-Ones: One-on-Ones.md
+    - People Ops, Performance Reviews, and Goal-setting: People-Ops-Perf-Reviews-and-Goal-setting.md
+    - Planning, Roadmaps and Processes: Planning-roadmaps.md
+    - Postmortems and Retrospectives: Postmortems-Retrospectives.md
+    - Productivity and Time Management: Productivity-and-Time-Management.md
+    - Tools to Define Your Leadership Style: Tools-to-Define-Your-Leadership-Style.md
+    - Transitioning to Management: Transitioning to Management.md
+    - The VP Engineering Role: The-VP-Engineering-Role.md
   - Notes:
       - notes/index.md
       - "Simon Sinek: Leaders Eat Last": notes/Simon_Sinek_-_Leaders-Eat-Last.md
