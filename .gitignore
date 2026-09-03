@@ -32,7 +32,6 @@ logs
 .capy/**
 !.capy
 !.capy/AGENTS.md
-!.capy/knowledge.db
 
 # benchmark results (local only)
 bench-results/
