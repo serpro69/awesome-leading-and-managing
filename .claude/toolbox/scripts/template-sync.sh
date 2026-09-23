@@ -25,6 +25,15 @@
 #   --output-dir DIR      Directory for staged changes (default: temp)
 #   -h, --help            Show this help message
 #
+# ENVIRONMENT:
+#   TEMPLATE_SYNC_NO_HANDOFF=1
+#                         Disable the self-update handoff. By default, when the
+#                         target version ships a different template-sync.sh,
+#                         this script exec()s that copy so the version matching
+#                         the templates drives the whole run (migrations
+#                         included) in one invocation. Set this to run the
+#                         local script as-is, e.g. while developing it.
+#
 # REQUIRES:
 #   - jq (for JSON parsing)
 #   - git
@@ -120,6 +129,12 @@ APPLY_MODE=false
 # Local mode: fetch + compare + apply in a single invocation
 LOCAL_MODE=false
 
+# Entry-point flag: true only when this file is the process' main script (set
+# by the guard at the bottom of the file), false when sourced — e.g. by the
+# test suite. handoff_to_upstream_script() exec()s over the current process,
+# which is only safe in the former case.
+IS_ENTRYPOINT=false
+
 # =============================================================================
 # Color Output
 # =============================================================================
@@ -173,6 +188,19 @@ cleanup_on_exit() {
     fi
   fi
 
+  # Temp dir inherited from a parent process that exec()'d this script (see
+  # handoff_to_upstream_script). exec() skips the parent's EXIT trap, so the
+  # parent delegates its cleanup to us. Guarded by the mktemp naming pattern so
+  # a stray value in the environment can never point us at an arbitrary path.
+  local handoff_dir="${TEMPLATE_SYNC_HANDOFF_CLEANUP:-}"
+  if [[ -n "$handoff_dir" && -d "$handoff_dir" ]]; then
+    case "$handoff_dir" in
+    */template-sync.*)
+      rm -rf "$handoff_dir"
+      ;;
+    esac
+  fi
+
   exit $exit_code
 }
 
@@ -215,6 +243,22 @@ is_excluded() {
   done
 
   return 1 # Not excluded
+}
+
+# sed_inplace()
+# Portable in-place sed: GNU sed uses `-i`, BSD/macOS sed needs `-i ''`.
+#
+# Args:
+#   $@ - sed script(s) and target file(s), as accepted by sed
+#
+# Note: scripts passed here must stick to POSIX sed syntax — e.g. `a\` followed
+# by a literal newline, not GNU's one-line `a text` form — so both dialects work.
+sed_inplace() {
+  if sed --version >/dev/null 2>&1; then
+    sed -i "$@"
+  else
+    sed -i '' "$@"
+  fi
 }
 
 # =============================================================================
@@ -466,7 +510,7 @@ backfill_manifest_variables() {
     "CC_STATUSLINE:enhanced"
     "CC_EFFORT_LEVEL:high"
     "CC_PERMISSION_MODE:default"
-    "CODEX_MODEL:gpt-5.6-sol"
+    "CODEX_MODEL:gpt-6-astra"
     "CODEX_APPROVAL_POLICY:on-request"
     "SKIP_CAPY:false"
   )
@@ -684,7 +728,7 @@ run_serena_removal() {
     if [[ -f ".gitignore" ]] && grep -q '^!\.serena' .gitignore; then
       MODIFIED_FILES+=(".gitignore")
       if $APPLY_MODE; then
-        sed -i '/^!\.serena$/d' .gitignore
+        sed_inplace '/^!\.serena$/d' .gitignore
         log_info "Removed !.serena from .gitignore"
       else
         log_info "Would remove !.serena from .gitignore"
@@ -785,6 +829,95 @@ run_script_consolidation() {
 }
 
 # =============================================================================
+# Feature-Docs Relocation Migration
+# =============================================================================
+
+# needs_docs_feat_migration()
+# Checks whether the downstream repo still keeps feature docs at the legacy
+# top-level locations (docs/wip, docs/done, docs/archive) that upstream moved
+# under docs/feat/.
+#
+# Gating is pure state detection (same pattern as needs_script_consolidation):
+# the migration's own effect — the legacy dirs no longer existing — is the
+# idempotency guard, so no manifest flag is required.
+#
+# Returns 0 if any legacy dir is present, 1 otherwise.
+needs_docs_feat_migration() {
+  local dir
+  for dir in docs/wip docs/done docs/archive; do
+    if [[ -d "$dir" ]]; then
+      return 0
+    fi
+  done
+
+  return 1
+}
+
+# run_docs_feat_migration()
+# Relocates feature-doc directories from their legacy top-level paths to the
+# docs/feat/ namespace, matching the upstream layout:
+#   docs/wip     -> docs/feat/wip
+#   docs/done    -> docs/feat/done
+#   docs/archive -> docs/feat/archive
+#
+# Deliberate limitations (fail loud, don't over-reach):
+#   - Only moves directories. It does NOT sed-rewrite references inside
+#     consumer files: relative links within the moved trees survive the move,
+#     and a repo-wide rewrite risks corrupting unrelated content. Any hardcoded
+#     "docs/wip/..." references in consumer prose are the consumer's to fix.
+#   - Never clobbers an existing target — if docs/feat/<name> already exists it
+#     warns and skips that pair. Because gating is state-based, an unresolved
+#     collision keeps warning on every sync until a human merges it, rather
+#     than being silently suppressed by a flag.
+#   - Respects sync_exclusions: an excluded legacy dir is left in place.
+#
+# Side effects:
+#   - Moves legacy dirs into docs/feat/ (APPLY_MODE only)
+#   - Appends old paths to DELETED_FILES and new paths to ADDED_FILES
+#   - Logs all actions
+run_docs_feat_migration() {
+  log_step "Relocating feature docs to docs/feat/"
+
+  local pairs=(
+    "docs/wip:docs/feat/wip"
+    "docs/done:docs/feat/done"
+    "docs/archive:docs/feat/archive"
+  )
+
+  local pair src dst
+  for pair in "${pairs[@]}"; do
+    src="${pair%%:*}"
+    dst="${pair##*:}"
+
+    [[ -d "$src" ]] || continue
+
+    # Respect sync_exclusions — if the source tree is excluded, leave it alone
+    if is_excluded "$src"; then
+      log_info "Skipping $src/ relocation (matched sync_exclusions)"
+      continue
+    fi
+
+    # Never clobber an existing target — fail loud, skip this pair
+    if [[ -e "$dst" ]]; then
+      log_warn "Cannot relocate $src/ — $dst/ already exists; merge manually"
+      continue
+    fi
+
+    DELETED_FILES+=("$src/")
+    ADDED_FILES+=("$dst/")
+    if $APPLY_MODE; then
+      mkdir -p "$(dirname "$dst")"
+      mv "$src" "$dst"
+      log_info "Moved $src/ -> $dst/"
+    else
+      log_info "Would move $src/ -> $dst/"
+    fi
+  done
+
+  log_success "Feature docs relocation complete"
+}
+
+# =============================================================================
 # Version Resolution and Template Fetching
 # =============================================================================
 
@@ -833,7 +966,7 @@ resolve_version() {
           resolved="$tag"
         fi
       fi
-    done <<< "$tags"
+    done <<<"$tags"
 
     # If no tags exist, resolve default branch to SHA
     if [[ -z "$resolved" ]]; then
@@ -1002,6 +1135,112 @@ fetch_upstream_templates() {
 }
 
 # =============================================================================
+# Self-Update Handoff
+# =============================================================================
+
+# handoff_to_upstream_script()
+# Hands the current run over to the upstream copy of this script when the two
+# differ, so the script version that matches the target templates drives the
+# whole sync — fetch, migrations, report, apply — in a single invocation.
+#
+# Why this exists:
+#   1. bash reads scripts lazily by byte offset. When apply_changes() copies a
+#      newer template-sync.sh over the running one, the old shell keeps reading
+#      the new file at stale offsets: at best a spurious "syntax error near
+#      unexpected token" after main() returns, at worst execution of whatever
+#      unrelated line the offset lands on.
+#   2. Migrations that only the newer script knows about are not applied until
+#      the user runs the sync a second time, and --dry-run previews miss them.
+#
+# Handing off BEFORE any mutation avoids both: the running (old) process never
+# touches the working tree, and the new script sees the same pre-sync state.
+#
+# The upstream copy is exec()'d from $STAGING_DIR/bin — a stable location the
+# later working-tree copy cannot disturb — with the original CLI arguments.
+# It is read from the fetched/substituted templates tree (non-hidden
+# `claude/...` layout) rather than the raw upstream checkout: in CI the
+# staging dir travels through an artifact that drops hidden paths, so the
+# `upstream/.claude/...` copy is not available in --apply mode.
+#
+# Environment contract with the exec()'d script (forward-only — newer scripts
+# must keep honoring these names, since an older parent sets them):
+#   TEMPLATE_SYNC_NO_HANDOFF=1         Skip the handoff. Set for the child to
+#                                      prevent loops; users may set it to run a
+#                                      locally modified script as-is.
+#   TEMPLATE_SYNC_HANDOFF_CLEANUP=DIR  Auto-created temp dir owned by the
+#                                      parent. exec() skips the parent's EXIT
+#                                      trap, so the child removes it in
+#                                      cleanup_on_exit().
+#
+# Args:
+#   $1 - Templates dir laid out as claude/toolbox/scripts/... — either
+#        FETCHED_TEMPLATES_PATH (fetch modes) or "$STAGING_DIR/substituted"
+#        (--apply mode)
+#   $@ - Remaining args: the original CLI arguments to re-pass verbatim
+#
+# Returns:
+#   0 when no handoff is needed: identical script, handoff disabled, running
+#     sourced rather than as the entry point, or no script at the target
+#     version. Does not return when a handoff happens.
+#
+# Side effects:
+#   On handoff, in fetch modes: removes the upstream/fetched/substituted
+#   staging subdirs so the child's own fetch starts from a clean directory
+#   (git clone refuses a non-empty target; cp -r would nest into existing
+#   dirs). Left intact in --apply mode, where the child consumes them.
+handoff_to_upstream_script() {
+  local templates_dir="$1"
+  shift
+
+  if [[ -n "${TEMPLATE_SYNC_NO_HANDOFF:-}" ]]; then
+    return 0
+  fi
+
+  # exec() replaces the whole process — only safe when this file IS the
+  # process' main script, not when sourced by the test suite or another script.
+  if ! $IS_ENTRYPOINT; then
+    return 0
+  fi
+
+  local self="${BASH_SOURCE[0]}"
+  local upstream_scripts_dir="$templates_dir/claude/toolbox/scripts"
+  local upstream_script="$upstream_scripts_dir/template-sync.sh"
+
+  if [[ ! -f "$upstream_script" ]]; then
+    return 0
+  fi
+
+  if cmp -s "$self" "$upstream_script"; then
+    return 0
+  fi
+
+  log_step "Sync script differs from upstream — handing off to the upstream version"
+
+  local bin_dir="$STAGING_DIR/bin"
+  mkdir -p "$bin_dir"
+  cp "$upstream_script" "$bin_dir/template-sync.sh"
+  chmod +x "$bin_dir/template-sync.sh"
+  # The script sources semver-compare.sh from its own directory and would
+  # otherwise bootstrap it from master over the network — keep them together.
+  if [[ -f "$upstream_scripts_dir/semver-compare.sh" ]]; then
+    cp "$upstream_scripts_dir/semver-compare.sh" "$bin_dir/semver-compare.sh"
+  fi
+
+  if ! $APPLY_MODE; then
+    rm -rf "$STAGING_DIR/upstream" "$STAGING_DIR/fetched" "$STAGING_DIR/substituted"
+  fi
+
+  export TEMPLATE_SYNC_NO_HANDOFF=1
+  if [[ -n "${TEMP_DIR:-}" ]]; then
+    export TEMPLATE_SYNC_HANDOFF_CLEANUP="$TEMP_DIR"
+  fi
+
+  # $BASH is the interpreter running this script — reuse it rather than
+  # whatever `bash` resolves to on PATH (matters on macOS with a Homebrew bash).
+  exec "${BASH:-bash}" "$bin_dir/template-sync.sh" "$@"
+}
+
+# =============================================================================
 # Substitution Functions
 # =============================================================================
 
@@ -1109,7 +1348,7 @@ apply_substitutions() {
   local codex_config_file="$output_dir/codex/config.toml"
   if [[ -f "$codex_config_file" ]]; then
     local codex_model codex_approval_policy
-    codex_model=$(get_manifest_value '.variables.CODEX_MODEL // "gpt-5.6-sol"')
+    codex_model=$(get_manifest_value '.variables.CODEX_MODEL // "gpt-6-astra"')
     codex_approval_policy=$(get_manifest_value '.variables.CODEX_APPROVAL_POLICY // "on-request"')
 
     yq -i -p toml -o toml \
@@ -1511,6 +1750,53 @@ generate_markdown_summary() {
 # Apply Changes (consolidates all mutations the YAML used to do inline)
 # =============================================================================
 
+# apply_wiring()
+# Wires the root CLAUDE.md @import references (CLAUDE.extra.md and
+# toolbox/CLAUDE.md) and cleans up the obsolete "# Extra Instructions" header.
+#
+# The root CLAUDE.md is NOT a tracked template file, so its @import state is
+# independent of the template diff. This function must therefore run even when
+# `compare_files` reports zero changes (e.g. a re-run after the manifest version
+# was already bumped) — otherwise a newly-introduced @import can never land.
+# apply_changes() calls it on every apply; main() also calls it on the
+# 0-change local path.
+#
+# Args:
+#   $1 - Staging directory containing substituted templates
+#
+# Side effects:
+#   Mutates the working tree's root CLAUDE.md (idempotent — guarded by grep)
+apply_wiring() {
+  local staging_dir="$1"
+
+  # Cleanup obsolete header
+  if grep -q '^# Extra Instructions$' CLAUDE.md 2>/dev/null; then
+    sed_inplace 's/^# Extra Instructions$//' CLAUDE.md
+  fi
+
+  # --- Auto-import CLAUDE.extra.md ---
+  if [[ -f "$staging_dir/claude/CLAUDE.extra.md" && -f "CLAUDE.md" ]]; then
+    if ! grep -q '@.claude/CLAUDE.extra.md' CLAUDE.md; then
+      printf '@.claude/CLAUDE.extra.md\n' >>CLAUDE.md
+      log_info "Added @import reference for .claude/CLAUDE.extra.md to CLAUDE.md"
+    fi
+  fi
+
+  # --- Auto-import .claude/toolbox/CLAUDE.md ---
+  if [[ -f "$staging_dir/claude/toolbox/CLAUDE.md" && -f "CLAUDE.md" ]]; then
+    if ! grep -q '@.claude/toolbox/CLAUDE.md' CLAUDE.md; then
+      # Keep the import next to the CLAUDE.extra.md one when it exists
+      if grep -q '^@\.claude/CLAUDE\.extra\.md$' CLAUDE.md; then
+        sed_inplace '/^@\.claude\/CLAUDE\.extra\.md$/a\
+@.claude/toolbox/CLAUDE.md' CLAUDE.md
+      else
+        printf '\n@.claude/toolbox/CLAUDE.md\n' >>CLAUDE.md
+      fi
+      log_info "Added @import reference for .claude/toolbox/CLAUDE.md to CLAUDE.md"
+    fi
+  fi
+}
+
 # apply_changes()
 # Applies all staged changes to the working tree: copies files, runs
 # migrations, patches gitignore, auto-imports CLAUDE.extra.md, and
@@ -1529,6 +1815,14 @@ apply_changes() {
   log_step "Applying staged changes"
 
   # --- Copy staged files into working tree ---
+  # NOTE: this cp overwrites .claude/toolbox/scripts/template-sync.sh in place.
+  # That is safe only because (a) main() hands off to the upstream copy of the
+  # script before reaching this point whenever the two differ, so the process
+  # executing here runs from $STAGING_DIR/bin, not from the file being
+  # overwritten (see handoff_to_upstream_script), and (b) the entry-point guard
+  # at the bottom of this file exits immediately after main() returns, so even
+  # with the handoff disabled bash never reads past the overwritten file's
+  # stale byte offset.
   local -A dir_map=(
     ["claude"]=".claude"
     ["codex"]=".codex"
@@ -1565,28 +1859,29 @@ apply_changes() {
     run_script_consolidation
   fi
 
+  if needs_docs_feat_migration; then
+    run_docs_feat_migration
+  fi
+
   # --- Patch .gitignore for .codex ---
   if [[ -d "$staging_dir/codex" && -f ".gitignore" ]]; then
     if git check-ignore -q .codex 2>/dev/null; then
       if ! grep -q '^!\.codex' .gitignore; then
         if grep -q '^!\.claude' .gitignore; then
-          sed -i '/^!\.claude$/a !.codex' .gitignore
+          sed_inplace '/^!\.claude$/a\
+!.codex' .gitignore
         else
-          printf '!.codex\n' >> .gitignore
+          printf '!.codex\n' >>.gitignore
         fi
         log_info "Added !.codex to .gitignore (was excluded by .* pattern)"
       fi
     fi
   fi
 
-  # --- Auto-import CLAUDE.extra.md ---
-  if [[ -f "$staging_dir/claude/CLAUDE.extra.md" && -f "CLAUDE.md" ]]; then
-    if ! grep -q '@.claude/CLAUDE.extra.md' CLAUDE.md; then
-      printf '\n# Extra Instructions\n' >> CLAUDE.md
-      printf '@.claude/CLAUDE.extra.md\n' >> CLAUDE.md
-      log_info "Added @import reference for .claude/CLAUDE.extra.md to CLAUDE.md"
-    fi
-  fi
+  # --- Wire root CLAUDE.md @imports ---
+  # Independent of template file diffs (CLAUDE.md is not a tracked template),
+  # so this also runs from main() on 0-change re-runs. See apply_wiring().
+  apply_wiring "$staging_dir"
 
   # --- Update manifest version ---
   local synced_at
@@ -1631,6 +1926,11 @@ Options:
   --ci                  CI mode: outputs GitHub Actions compatible format
   --output-dir DIR      Directory to stage changes (default: temporary directory)
   -h, --help            Show this help message
+
+Environment:
+  TEMPLATE_SYNC_NO_HANDOFF=1
+                        Run this script as-is instead of handing off to the
+                        target version's copy when the two differ
 
 Requires: jq, git, curl, yq (mikefarah/yq for YAML processing)
 
@@ -1758,8 +2058,10 @@ main() {
   read_manifest
   validate_manifest
 
-  # Apply mode: skip fetch/compare/report, just apply staged changes
+  # Apply mode: skip fetch/compare/report, just apply staged changes.
+  # The staged tree may carry a newer sync script — let it do the applying.
   if $APPLY_MODE; then
+    handoff_to_upstream_script "$STAGING_DIR/substituted" "$@"
     apply_changes "$STAGING_DIR/substituted" "$TARGET_VERSION"
     return 0
   fi
@@ -1791,6 +2093,11 @@ main() {
   # Fetch upstream templates (sets FETCHED_TEMPLATES_PATH)
   fetch_upstream_templates "$RESOLVED_VERSION" "$upstream_repo" "$STAGING_DIR"
 
+  # If the fetched version ships a different sync script, let that version
+  # drive the rest of the run. Must happen before any migration/compare/apply
+  # step so the working tree is still in its pre-sync state for the new script.
+  handoff_to_upstream_script "$FETCHED_TEMPLATES_PATH" "$@"
+
   # Display fetched templates info
   if ! $CI_MODE; then
     echo ""
@@ -1811,6 +2118,10 @@ main() {
 
   if needs_script_consolidation; then
     run_script_consolidation
+  fi
+
+  if needs_docs_feat_migration; then
+    run_docs_feat_migration
   fi
 
   # Apply substitutions to fetched templates
@@ -1846,6 +2157,12 @@ main() {
   local total_changes=$((${#ADDED_FILES[@]} + ${#MODIFIED_FILES[@]} + ${#DELETED_FILES[@]}))
   if [[ $total_changes -eq 0 ]]; then
     log_success "Templates are up to date - no changes needed"
+    # Root CLAUDE.md @import wiring is not a tracked template file, so it must
+    # run even when no template files changed — e.g. a re-run after the version
+    # was already bumped by a prior sync. Only mutate in local apply mode.
+    if $LOCAL_MODE && ! $DRY_RUN; then
+      apply_wiring "$SUBSTITUTED_TEMPLATES_PATH"
+    fi
   elif $DRY_RUN; then
     log_info "Dry run complete - $total_changes file(s) would be changed"
   elif $LOCAL_MODE; then
@@ -1860,6 +2177,14 @@ main() {
 
 # Run main with all arguments only if script is executed directly (not sourced)
 # This allows tests to source the file and access functions without running main()
+#
+# The explicit `exit` is load-bearing: bash parses this whole if-block before
+# executing it and reads the file lazily afterwards. apply_changes() may have
+# overwritten this very file with a newer version, so any read past this block
+# would hit stale byte offsets in the new content. Exiting here guarantees
+# nothing past `fi` is ever read. Keep this the last statement in the file.
 if [[ "${BASH_SOURCE[0]:-}" == "${0:-}" ]]; then
+  IS_ENTRYPOINT=true
   main "$@"
+  exit $?
 fi
