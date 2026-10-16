@@ -1,3 +1,5 @@
+> Modification notice (2026-10-16): Light Tracer added the audience-view checklist entry below. No other resource text was changed.
+
 # Leading and Managing Remotely
 
 Please add your favorite articles, videos, and other resources — just follow the [Contributing guidelines](https://serpro69.github.io/awesome-leading-and-managing/about/contributing/) and go! :)
@@ -52,3 +54,5 @@ Lindsay Holmwood. Takeaway: a slidedeck of tips for working remotely.
 - [29 Tips for Very Effective Remote Managers and Workers](https://medium.com/better-programming/29-tips-for-very-effective-remote-managers-and-workers-3b20d897ceb3) - by Sarah Milstein. Takeaway: This article by a manager with two decades of experience working remotely digs deeper than the generic advice, addressing specific types of remote situations. Some tips: "Practice 'one on video, all on video,'"; "Make some meetings video only"; and "designate somebody in the room to make sure all the folks on video can see, hear and raise their hands."
 
 - [We'll Be Working Remote for Another 6+ Months. Time for a 1:1 Tune-up.](https://blog.nuffsaid.com/running-one-on-ones) - by Chris Hicken. Takeaway: "Taking the steps to plan the process and strategize for one-on-one meetings has proven to benefit every aspect of our workplace. When the company, manager, and team member are aligned, morale is higher and turnover dissolves." Includes a structure to follow to make the most out of your remote 1:1's.
+
+- [Will a Laser Pointer Show Up in a Screen Share?](https://light-tracer.com/laser-pointer-screen-share-zoom-teams/) - by Light Tracer (retailer; AI-assisted). Takeaway: Before a hybrid presentation, check shared pointer marks from an attendee’s view, repeat after slide or window changes, and check any permitted test recording separately.
