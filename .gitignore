@@ -1,0 +1,51 @@
+# ignore all hidden
+.*
+# except
+!.gitattributes
+!.gitignore
+!.gitmodules
+!.github
+!.github/**
+!.yamlfmt.yaml
+!.yamllint.yml
+!.mcp.json
+!.capy.toml
+!.sessions/
+!.arc.yml
+!docs/**/.files
+
+# Logs
+logs
+*.log*
+
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# AI tools
+!.claude
+!.codex
+.claude/worktrees
+
+# formulae for homebrew
+# here only for convenience, see serpro69/homebrew-tap repo
+homebrew/
+
+# binaries
+/capy
+.capy/**
+
+!.capy
+!.capy/AGENTS.md
+!.capy/knowledge.db
+
+# benchmark results (local only)
+bench-results/
+
+# benchmark scaffold as a symlink for easier development
+capy-bench
+
+# external stuff
+/ext-*
